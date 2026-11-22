@@ -66,6 +66,15 @@ Every script prints `SYNTHETIC` when it cannot find real data or checkpoints; do
 
 Python 3.10. Colab for training and fault studies. Raspberry Pi 4 Model B Rev 1.5 (8 GB), Ubuntu 22.04 64-bit, Python 3.10.12, ONNX Runtime 1.23.2, NumPy 2.2.6, one thread.
 
+## What reproduces and what does not
+
+- **Result files:** every number in the paper comes from a file in `results/`; `VERIFY.md` maps each number to its file and script.
+- **Re-evaluating the saved models:** `checkpoints/final_tmplaug_seed0.pt` to `seed4.pt` are the five models used for the DS2 results and the fault study. Evaluating a checkpoint with `eval_source_model.py` should give the same numbers up to floating-point differences between machines. For seed 0 the DS2 macro-F1 (N/S/V) is 0.822.
+- **Fault experiments** use fixed seeds and should reproduce; they have not been re-run from this repository snapshot.
+- **Retraining from scratch will not give the same models.** Training is stochastic, and the augmentation flags of the five final models were not stored.
+- **Data and cache are not included.** The MIT-BIH databases come from PhysioNet; build the beat cache with `dataset.py` (see `RUNBOOK.md`).
+- **Raspberry Pi timings** depend on the device; the Pi used for the paper's numbers was a Raspberry Pi 4 Model B (8 GB).
+
 ## License
 
 MIT (see `LICENSE`).
