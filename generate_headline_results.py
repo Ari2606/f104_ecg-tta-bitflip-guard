@@ -1,5 +1,5 @@
 """
-generate_headline_results.py -- PhysioGuard-Space, presentation summary
+generate_headline_results.py -- earlier-phase presentation summary (not used for the paper numbers)
 
 Computes the paper's three headline claims DIRECTLY from the saved real-data result
 files (never hardcoded), so every number here is reproducible and auditable:
@@ -41,7 +41,7 @@ def main():
 
     # ---- moderate-shift accuracy, real data, per method (Stage 7 per-beat logs) ----
     src_acc = moderate_shift_accuracy("source_only")
-    pg_acc = moderate_shift_accuracy("physioguard_space")
+    pg_acc = moderate_shift_accuracy("ttaguard")
     tent_acc = moderate_shift_accuracy("tent_sparse")
 
     # ---- 2 & 3. Safety metrics (Stage 7 safety_summary.json) ----
@@ -50,9 +50,9 @@ def main():
     def s(method, key):
         return safety[method]["summary"][key]
 
-    tent_djs, pg_djs, src_djs = s("tent_sparse", "mean_js_div"), s("physioguard_space", "mean_js_div"), s("source_only", "mean_js_div")
-    tent_f1, pg_f1, src_f1 = s("tent_sparse", "macro_f1"), s("physioguard_space", "macro_f1"), s("source_only", "macro_f1")
-    pg_adapt_rate = s("physioguard_space", "adaptation_rate")
+    tent_djs, pg_djs, src_djs = s("tent_sparse", "mean_js_div"), s("ttaguard", "mean_js_div"), s("source_only", "mean_js_div")
+    tent_f1, pg_f1, src_f1 = s("tent_sparse", "macro_f1"), s("ttaguard", "macro_f1"), s("source_only", "macro_f1")
+    pg_adapt_rate = s("ttaguard", "adaptation_rate")
     tent_adapt_rate = s("tent_sparse", "adaptation_rate")
     br_adapt_rate = s("beatrhythm_sqi_gate", "adaptation_rate")
     djs_reduction = tent_djs / pg_djs
@@ -66,7 +66,7 @@ def main():
          "Moderate-shift accuracy": src_acc, "Macro-F1 (moderate shift)": src_f1, "Mean D_JS": src_djs},
         {"Method": "TENT (unconstrained)", "Clean accuracy (sev=0)": clean_acc,
          "Moderate-shift accuracy": tent_acc, "Macro-F1 (moderate shift)": tent_f1, "Mean D_JS": tent_djs},
-        {"Method": "PhysioGuard-Space", "Clean accuracy (sev=0)": clean_acc,
+        {"Method": "Ours (guarded adaptation)", "Clean accuracy (sev=0)": clean_acc,
          "Moderate-shift accuracy": pg_acc, "Macro-F1 (moderate shift)": pg_f1, "Mean D_JS": pg_djs},
     ])
     for c in ["Clean accuracy (sev=0)", "Moderate-shift accuracy", "Macro-F1 (moderate shift)"]:
@@ -81,9 +81,9 @@ def main():
         {"Method": "TENT (unconstrained)", "Adaptation coverage": tent_adapt_rate,
          "Rejection rate": 1 - tent_adapt_rate, "Mean D_JS": tent_djs,
          "HURR": hurr["tent_sparse"], "BUAR": buar["tent_sparse"]},
-        {"Method": "PhysioGuard-Space", "Adaptation coverage": pg_adapt_rate,
+        {"Method": "Ours (guarded adaptation)", "Adaptation coverage": pg_adapt_rate,
          "Rejection rate": 1 - pg_adapt_rate, "Mean D_JS": pg_djs,
-         "HURR": hurr["physioguard_space"], "BUAR": buar["physioguard_space"]},
+         "HURR": hurr["ttaguard"], "BUAR": buar["ttaguard"]},
     ])
     for c in ["Adaptation coverage", "Rejection rate", "HURR", "BUAR"]:
         table2[c] = (table2[c] * 100).round(1).astype(str) + "%"
