@@ -1,0 +1,9 @@
+numpy
+scipy
+scikit-learn
+matplotlib
+wfdb
+psutil
+onnx
+onnxruntime
+torch
