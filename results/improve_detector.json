@@ -1,0 +1,4 @@
+{"chosen":{"thr_k":0.5,"shift":4},
+ "ds1_grid":[{"thr_k":0.25,"sens_pct":99.58,"ppv_pct":95.33,"F":97.41},{"thr_k":0.35,"sens_pct":99.17,"ppv_pct":97.55,"F":98.36},{"thr_k":0.5,"sens_pct":97.75,"ppv_pct":99.31,"F":98.53},{"thr_k":0.7,"sens_pct":95.17,"ppv_pct":99.59,"F":97.33}],
+ "settings":{"A":{"nsv_f1":80.0},"C":{"nsv_f1":76.4},"xqrs|V0":{"nsv_f1":75.4,"minus_A":[-4.6,[-7.0,-0.5]]},"pt|V0":{"nsv_f1":68.9,"minus_A":[-11.1,[-15.4,-5.3]]},"pt_tuned|V0":{"nsv_f1":70.8,"minus_A":[-9.2,[-16.5,-3.3]]}},
+ "note":"Subset of the original file: only the fields quoted in the paper."}
