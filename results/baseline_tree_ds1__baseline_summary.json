@@ -1,0 +1,74 @@
+{
+ "DT": {
+  "nsv_mean_per_seed": [
+   57.39,
+   57.65,
+   63.41
+  ],
+  "nsv_mean_seed_avg": 59.48,
+  "ci95_record_bootstrap_2000": [
+   52.0,
+   67.9
+  ],
+  "S_f1_seed_avg": 28.7
+ },
+ "RF": {
+  "nsv_mean_per_seed": [
+   71.9,
+   73.0,
+   72.28
+  ],
+  "nsv_mean_seed_avg": 72.39,
+  "ci95_record_bootstrap_2000": [
+   60.2,
+   82.0
+  ],
+  "S_f1_seed_avg": 39.3
+ },
+ "_meta": {
+  "protocol": "v1 fixed in advance; DS1 out-of-fold; DS2 not used",
+  "n_beats": 51001,
+  "folds": {
+   "0": [
+    208
+   ],
+   "1": [
+    114,
+    201,
+    207,
+    223
+   ],
+   "2": [
+    101,
+    106,
+    109,
+    112,
+    116,
+    118,
+    205,
+    209,
+    230
+   ],
+   "3": [
+    108,
+    115,
+    119,
+    122,
+    124,
+    203,
+    215,
+    220
+   ]
+  },
+  "models": {
+   "DT": "max_depth=10,min_samples_leaf=20,class_weight=balanced",
+   "RF": "n_estimators=300,min_samples_leaf=5,max_features=sqrt,class_weight=balanced_subsample"
+  },
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "script_sha256": "ff3c67f1ea0f827abad93c42b37f44e01d43ce9534bfeaeb17becc26d5828570"
+ }
+}

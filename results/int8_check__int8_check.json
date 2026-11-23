@@ -1,0 +1,62 @@
+[
+ {
+  "ckpt": "final_tmplaug_seed0.pt",
+  "int8_weights": 15504,
+  "float32_params": 869,
+  "scales": 453,
+  "bn_running_values": 832,
+  "stored_bytes": 24120,
+  "stored_KB": 23.6,
+  "f1_float32": 82.19,
+  "f1_int8_weights": 82.31,
+  "delta": 0.12
+ },
+ {
+  "ckpt": "final_tmplaug_seed1.pt",
+  "int8_weights": 15504,
+  "float32_params": 869,
+  "scales": 453,
+  "bn_running_values": 832,
+  "stored_bytes": 24120,
+  "stored_KB": 23.6,
+  "f1_float32": 72.07,
+  "f1_int8_weights": 72.02,
+  "delta": -0.05
+ },
+ {
+  "ckpt": "final_tmplaug_seed2.pt",
+  "int8_weights": 15504,
+  "float32_params": 869,
+  "scales": 453,
+  "bn_running_values": 832,
+  "stored_bytes": 24120,
+  "stored_KB": 23.6,
+  "f1_float32": 84.46,
+  "f1_int8_weights": 84.58,
+  "delta": 0.12
+ },
+ {
+  "ckpt": "final_tmplaug_seed3.pt",
+  "int8_weights": 15504,
+  "float32_params": 869,
+  "scales": 453,
+  "bn_running_values": 832,
+  "stored_bytes": 24120,
+  "stored_KB": 23.6,
+  "f1_float32": 78.33,
+  "f1_int8_weights": 78.61,
+  "delta": 0.28
+ },
+ {
+  "ckpt": "final_tmplaug_seed4.pt",
+  "int8_weights": 15504,
+  "float32_params": 869,
+  "scales": 453,
+  "bn_running_values": 832,
+  "stored_bytes": 24120,
+  "stored_KB": 23.6,
+  "f1_float32": 83.25,
+  "f1_int8_weights": 83.27,
+  "delta": 0.01
+ }
+]
