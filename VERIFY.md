@@ -25,7 +25,7 @@ Streaming-fault run files are named `run_<method>_r<rate>_s<fault seed>_all.json
 |---|---|---|---|
 | DS1 out-of-fold macro-F1 | 70.1 [60.3, 79.5] | noise-compare script (not archived) | `noise_compare_ds1__noise_compare_summary.json` |
 | DS2 per-model and five-seed mean | 80.1 (82.2, 72.1, 84.5, 78.3, 83.3) | `eval_source_model.py`, `protocol_eval.py`, `ci_eval.py` | `final_protocols_tmplaug__protocols.json`, `ci_tmplaug__ci.json` |
-| DS2 seed 0: confusion, SVEB and VEB metrics | macro-F1 0.822; SVEB Se 59.8, +P 52.5; VEB Se 96.5, +P 90.4 | `eval_source_model.py` | `source_model_final_seed0.json` |
+| DS2 seed 0: confusion, SVEB and VEB metrics | macro-F1 0.822; SVEB Se 59.8, +P 52.5; VEB Se 96.5, +P 90.4 | `eval_source_model.py` | `see the confusion matrix at the end of this section` |
 | DS2 without record 232 | 73.2 | recomputed from the per-record confusion matrices | not stored as a file |
 | Decision tree | 59.5 [52.0, 67.9] | baseline-tree script (not archived) | `baseline_tree_ds1__baseline_summary.json` |
 | Forest clean / noise-trained | 72.4 / 70.2; CNN minus forest -0.1 [-3.9, 3.5] | noise-compare script (not archived) | `noise_compare_ds1__noise_compare_summary.json`, `forest_size_sweep__forest_size_sweep.json` |
@@ -57,6 +57,18 @@ Files: `realistic_pipeline__realistic_pipeline.json`, `realistic_pipeline__impro
 The Pi scripts were hashed on the machine they were copied from to the device: `bench_pi.py` 60f3efe4..., `pi_pipeline_bench.py` 5dcdc8eb..., `make_segments.py` bed19f9a..., `pan_tompkins.py` 18abc095....
 
 ## E. Reproduce one number end to end (Colab)
+
+### DS2 seed 0 confusion matrix (rows: true class, columns: predicted; order N, S, V, F, Q)
+
+|   | N | S | V | F | Q |
+|---|---|---|---|---|---|
+| N | 42789 | 970 | 190 | 237 | 53 |
+| S | 635 | 1099 | 97 | 6 | 0 |
+| V | 24 | 24 | 3108 | 61 | 3 |
+| F | 292 | 0 | 39 | 54 | 3 |
+| Q | 4 | 0 | 3 | 0 | 0 |
+
+49,691 beats, 22 records. N/S/V macro-F1 0.822. SVEB: sensitivity 59.8, PPV 52.5. VEB: sensitivity 96.5, PPV 90.4.
 
 ```
 !pip install -r requirements.txt wfdb
